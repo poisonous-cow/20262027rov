@@ -7,6 +7,8 @@ int button_b = 0;
 void setup() {
   pinMode(en1, OUTPUT);
   pinMode(en2, OUTPUT);
+  pinMode(button_a, INPUT);
+  pinMode(button_b, INPUT);
 }
 
 void extend() {
