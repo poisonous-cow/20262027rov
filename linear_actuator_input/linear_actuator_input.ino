@@ -1,8 +1,11 @@
 const int en1 = 6;
 const int en2 = 7;
 
-int button_a = 0;
-int button_b = 0;
+int button_a = 8;
+int button_b = 9;
+
+int a_val = 0;
+int b_val = 0;
 
 void setup() {
   pinMode(en1, OUTPUT);
@@ -27,7 +30,10 @@ void stop() {
 }
 
 void loop() {
-  if (button_a && !button_b) extend();
-  if (button_b && !button_a) retract();
-  if (!button_a && !button_b) stop();
+  a_val = digitalRead(button_a);
+  b_val = digitalRead(button_b);
+
+  if (a_val && !b_val) extend();
+  if (b_val && !a_val) retract();
+  if (!a_val && !b_val) stop();
 }
