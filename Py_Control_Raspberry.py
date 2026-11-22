@@ -2,6 +2,7 @@ import socket
 import json
 from tabnanny import check
 import serial
+import time
 
 def connectSocket():
     global receptor
@@ -53,16 +54,22 @@ try:
         ser = serial.Serial(active_port, 9600, timeout = 1)
         print ("connected to port \"/dev/ttyACM0\"")
         
-        #inputs to json callsed json_inputs
+        # inputs to json callsed json_inputs
         json_inputs = json.dumps(inputs)
 
-        #json_inputs to utf-8 called utf-8_bytes
+        # json_inputs to utf-8 called utf-8_bytes
         utf8_bytes = json_inputs.encode("utf-8")
 
-        #write utf-8_bytes to ser (connected arduino)
+        # write utf-8_bytes to ser (connected arduino)
         ser.write(utf8_bytes)
 
+        # receive from arduino
+        line = ser.readline().decode('utf-8').rstrip()
+        print(line)
+        time.sleep(0.5)
+
         print(inputs)
+
 except KeyboardInterrupt:
     finishProgram()
 
