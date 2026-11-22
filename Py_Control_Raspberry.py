@@ -74,4 +74,4 @@ try:
         print(inputs)
 except KeyboardInterrupt:
     finishProgram()
-Displaying Py_Control_Send.py. Page 1 of 1
+
