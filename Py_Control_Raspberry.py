@@ -58,7 +58,7 @@ try:
         #    print("using port /dev/ttyUSB0 because it is active")
         #else:
         #    print("no port active, connect arduino")
-        active_port = "/dev/tty/ACM0"
+        active_port = "/dev/ttyACM0"
         ser = serial.Serial(active_port, 9600, timeout = 1)
         print ("connected to port \"/dev/ttyACM0\"")
         #inputs to json callsed json_inputs
