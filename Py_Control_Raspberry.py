@@ -64,7 +64,7 @@ try:
         #inputs to json callsed json_inputs
         json_inputs = json.dumps(inputs)
         #json_inputs to utf-8 called utf-8_bytes
-        utf8_bytes = json_input.encode("utf-8")
+        utf8_bytes = json_inputs.encode("utf-8")
         #write utf-8_bytes to ser (connected arduino)
         ser.write(utf8_bytes)
         #inputs = message
