@@ -48,29 +48,20 @@ try:
                 "left_button": 0,
                 "right_button": 0
             }
-        #start of new block
-        #check if ports exist and set active port (uncomment if erroring)
-        #if check_port("/dev/ttyACM0"):
-        #    active_port = "/dev/ttyACM0"
-        #   print("using port /dev/ttyACM0 because it is active")
-        #elif check_port("/dev/ttyUSB0")
-        #    active_port = "/dev/ttyUSB0"
-        #    print("using port /dev/ttyUSB0 because it is active")
-        #else:
-        #    print("no port active, connect arduino")
+        
         active_port = "/dev/ttyACM0"
         ser = serial.Serial(active_port, 9600, timeout = 1)
         print ("connected to port \"/dev/ttyACM0\"")
+        
         #inputs to json callsed json_inputs
         json_inputs = json.dumps(inputs)
+
         #json_inputs to utf-8 called utf-8_bytes
         utf8_bytes = json_inputs.encode("utf-8")
+
         #write utf-8_bytes to ser (connected arduino)
         ser.write(utf8_bytes)
-        #inputs = message
-        #Steps: 1. convert to java script object notation (json)
-        # 2. encode to bytes with utf-8
-        # 3. send to arduino with serial
+
         print(inputs)
 except KeyboardInterrupt:
     finishProgram()
